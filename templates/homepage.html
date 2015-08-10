@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% autoescape off %}
+    <div class="container-fluid">
+        <h2><b>Top Footballers</b><br/><small>{{article.pub_date}} | </small><small class="text-primary">{{article.author}}</small></h2>
+        
+        <a href="{{article.id}}">                 
+          <img src="{{STATIC_URL|default:"/s/"}}{{article.hero_image}}"   width="700" height="300"> 
+        </a>
+        </br>
+        {{article.content}}
+    </div>
+
+    <div id="page-list-wrapper">
+        
+        {% for article in article_list %}
+        <p><h3><div class="numberCircle">{{article.id}}</div>{{article.title}}</h3><div id="list-content-wrapper">{{article.content}}
+        <p><a href="{{article.id}}">Read more...</a></p></div>
+        </br></br></br></br></br></br>
+        {% endfor %}
+        
+
+
+    </div>
+{% endautoescape %}  
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% autoescape off %}
+    <div class="container-fluid">
+		<h2><b>{{article.title}}</b><br/><small>{{article.pub_date}} | </small><small class="text-primary">{{article.author}}</small>
+		</h2>
+		  	            
+		<img src="{{STATIC_URL|default:"/s/"}}{{article.hero_image}}"   width="900" height="300">
+		</br>
+		<div id="page-content-wrapper">
+			<div id="image-content"><img src="{{STATIC_URL|default:"/s/"}}{{article.opt_image}}"   width="350" height="300"></div>
+			{{article.content}}
+		</div>
+	</div>
+
+{% endautoescape %}
+{% endblock %}
+	
+	
